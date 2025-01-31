@@ -1,0 +1,352 @@
+[
+    {
+        "id": "b0ee63927309088a",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "aacde7da9ec1cff3",
+        "type": "udp in",
+        "z": "b0ee63927309088a",
+        "name": "",
+        "iface": "",
+        "port": "9797",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "buffer",
+        "x": 960,
+        "y": 500,
+        "wires": [
+            [
+                "e27953eaaac3d9ae",
+                "cd479c5dd44f3ec8"
+            ]
+        ]
+    },
+    {
+        "id": "cd479c5dd44f3ec8",
+        "type": "json",
+        "z": "b0ee63927309088a",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1210,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c3df935afeeea8a3",
+        "type": "split",
+        "z": "b0ee63927309088a",
+        "name": "",
+        "splt": "/\" \"",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": true,
+        "addname": "",
+        "x": 1270,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1465c513b0c9e1fb",
+        "type": "link out",
+        "z": "b0ee63927309088a",
+        "name": "movie_playback",
+        "mode": "link",
+        "links": [
+            "068c88dacf268ce9"
+        ],
+        "x": 475,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "2d3f7a1ae1599765",
+        "type": "ui_slider",
+        "z": "b0ee63927309088a",
+        "name": "",
+        "label": "BIRDS",
+        "tooltip": "",
+        "group": "9c786e7b4a89de8d",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "outs": "end",
+        "topic": "/vol_birds",
+        "topicType": "str",
+        "min": 0,
+        "max": "1",
+        "step": "0.1",
+        "className": "",
+        "x": 80,
+        "y": 80,
+        "wires": [
+            [
+                "5a9ea00d254b3711",
+                "1465c513b0c9e1fb"
+            ]
+        ]
+    },
+    {
+        "id": "5a9ea00d254b3711",
+        "type": "osc",
+        "z": "b0ee63927309088a",
+        "name": "",
+        "path": "/volume",
+        "metadata": false,
+        "x": 530,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e27953eaaac3d9ae",
+        "type": "osc",
+        "z": "b0ee63927309088a",
+        "name": "",
+        "path": "/EQ_low",
+        "metadata": false,
+        "x": 1050,
+        "y": 580,
+        "wires": [
+            [
+                "c3df935afeeea8a3"
+            ]
+        ]
+    },
+    {
+        "id": "42b8f8228156df5c",
+        "type": "remote-access",
+        "z": "b0ee63927309088a",
+        "confignode": "b634cba534983053",
+        "name": "",
+        "verbose": 0,
+        "x": 850,
+        "y": 160,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "db064d4f9ab61228",
+        "type": "link out",
+        "z": "b0ee63927309088a",
+        "name": "movie_playback",
+        "mode": "link",
+        "links": [
+            "068c88dacf268ce9"
+        ],
+        "x": 605,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "dff0f26e87a9c109",
+        "type": "link out",
+        "z": "b0ee63927309088a",
+        "name": "link out 7",
+        "mode": "link",
+        "links": [
+            "dbdc939f2ec98c72"
+        ],
+        "x": 615,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "9d35cfe4e49f4e90",
+        "type": "ui_button",
+        "z": "b0ee63927309088a",
+        "name": "",
+        "group": "3c045d8db9852be9",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "label": "IDLE",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#C0C0C0",
+        "className": "",
+        "icon": "",
+        "payload": "idle",
+        "payloadType": "str",
+        "topic": "/idle",
+        "topicType": "str",
+        "x": 250,
+        "y": 380,
+        "wires": [
+            [
+                "db064d4f9ab61228"
+            ]
+        ]
+    },
+    {
+        "id": "1c5f871b3780930f",
+        "type": "ui_button",
+        "z": "b0ee63927309088a",
+        "name": "",
+        "group": "3c045d8db9852be9",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "label": "PLAY",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#87A980",
+        "className": "",
+        "icon": "",
+        "payload": "play",
+        "payloadType": "str",
+        "topic": "/play",
+        "topicType": "str",
+        "x": 250,
+        "y": 420,
+        "wires": [
+            [
+                "db064d4f9ab61228"
+            ]
+        ]
+    },
+    {
+        "id": "a0f391714c694c51",
+        "type": "ui_button",
+        "z": "b0ee63927309088a",
+        "name": "",
+        "group": "3c045d8db9852be9",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "label": "STOP",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#E9967A",
+        "className": "",
+        "icon": "",
+        "payload": "stop",
+        "payloadType": "str",
+        "topic": "/stop",
+        "topicType": "str",
+        "x": 250,
+        "y": 460,
+        "wires": [
+            [
+                "db064d4f9ab61228"
+            ]
+        ]
+    },
+    {
+        "id": "6b96c6e833801346",
+        "type": "ui_slider",
+        "z": "b0ee63927309088a",
+        "name": "",
+        "label": "AMBI",
+        "tooltip": "",
+        "group": "9c786e7b4a89de8d",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "outs": "end",
+        "topic": "/vol_ambi",
+        "topicType": "str",
+        "min": 0,
+        "max": "1",
+        "step": "0.1",
+        "className": "",
+        "x": 90,
+        "y": 140,
+        "wires": [
+            [
+                "5a9ea00d254b3711",
+                "1465c513b0c9e1fb"
+            ]
+        ]
+    },
+    {
+        "id": "46367b03c4a5716b",
+        "type": "ui_slider",
+        "z": "b0ee63927309088a",
+        "name": "",
+        "label": "GLOBAL",
+        "tooltip": "",
+        "group": "9c786e7b4a89de8d",
+        "order": 0,
+        "width": "6",
+        "height": "1",
+        "passthru": true,
+        "outs": "end",
+        "topic": "/vol_global",
+        "topicType": "str",
+        "min": 0,
+        "max": "1",
+        "step": "0.1",
+        "className": "",
+        "x": 100,
+        "y": 200,
+        "wires": [
+            [
+                "5a9ea00d254b3711",
+                "1465c513b0c9e1fb"
+            ]
+        ]
+    },
+    {
+        "id": "9c786e7b4a89de8d",
+        "type": "ui_group",
+        "name": "Volume",
+        "tab": "5ae286fa6823fbba",
+        "order": 6,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b634cba534983053",
+        "type": "remote-config",
+        "name": "Node-RED UI",
+        "host": "localhost",
+        "protocol": "http",
+        "port": "1880",
+        "baseurl": "/ui",
+        "instancehash": "wr7ruw3qm95aodsp77hu9cgas7pwvg50bcywm5e4zag4v4wbf4wfu4908vjdsxvd",
+        "server": "nodered03.remote-red.com",
+        "region": "us"
+    },
+    {
+        "id": "3c045d8db9852be9",
+        "type": "ui_group",
+        "name": "PLAYBACK",
+        "tab": "5ae286fa6823fbba",
+        "order": 2,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5ae286fa6823fbba",
+        "type": "ui_tab",
+        "name": "Ctrl",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
